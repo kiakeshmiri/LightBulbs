@@ -1,0 +1,16 @@
+table {
+  width: 15vw;
+}
+
+.mat-header-cell {
+  text-align: left;
+}
+
+.mat-cell{
+    text-align: left;
+    width: 40px;
+}
+
+#search-component{
+    margin: 40px;
+}
