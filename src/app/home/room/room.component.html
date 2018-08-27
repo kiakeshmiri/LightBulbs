@@ -23,7 +23,7 @@
         <mat-error>Please enter a valid Bulb Count</mat-error>
       </div>
       <mat-divider></mat-divider>
-
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
       <table mat-table [dataSource]="bulbs$" class="mat-elevation-z8">
         <!-- Number Column -->
         <ng-container matColumnDef="Id">
@@ -73,7 +73,6 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </mat-tab>
-
   </mat-tab-group>
 
 </div>

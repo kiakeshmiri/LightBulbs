@@ -4,8 +4,6 @@ import { Bulb } from '../../model/Bulb';
 import { Observable, BehaviorSubject } from 'rxjs';
 import {switchMap, debounceTime} from 'rxjs/operators';
 import { Person } from '../../model/person';
-import {MatPaginator} from '@angular/material';
-import { Bulbs } from '../../model/bulbs';
 import { Room } from '../../model/Room';
 
 @Component({
@@ -30,10 +28,8 @@ export class RoomComponent implements OnInit {
   onLightsCount: Number = 0;
   onMagicLightsCount: Number = 0;
   displayedColumns: string[] = ['Id', 'OnOff'];
-  isLoadingResults = true;
+  isLoadingResults = false;
   
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
   //used BehaviorSubject to be able to render room lights initially by passing inital person to the Observer. otherwise I have to initial 100 light bulbs first and then handle person enter event. 
   private lightBulbSubjects = new BehaviorSubject<Room>(this.room);
   
@@ -42,6 +38,7 @@ export class RoomComponent implements OnInit {
 
   // Push to Observable stream.
   enterRoom(room: Room): void {
+    this.isLoadingResults = true;
     this.lightBulbSubjects.next(room);
   
     this.bulbs$.subscribe(bulbs => {
@@ -58,7 +55,6 @@ export class RoomComponent implements OnInit {
           let bulbs = this.peronBulbService.enterRoom(new Room(magicPerson, 100));
           this.magicBulbs$ = bulbs.BulbList;
           this.onMagicLightsCount = bulbs.Count;
-    
         });
       });
   }
@@ -68,7 +64,11 @@ export class RoomComponent implements OnInit {
       // wait 500ms
       debounceTime(500),
 
-      switchMap((room: Room) => this.peronBulbService.enterRoom(room).BulbList)
+      switchMap((room: Room) => { 
+        let result = this.peronBulbService.enterRoom(room).BulbList;
+        this.isLoadingResults = false;
+        return result;
+      }),
     );
   }
 
