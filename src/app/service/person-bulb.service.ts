@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { Bulb } from '../model/Bulb';
 import { Person } from '../model/person';
 import { Bulbs } from '../model/bulbs';
+import { Room } from '../model/Room';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,9 @@ export class PersonBulbService extends BaseService {
 
   //mock array of 100 off bulbs
   //I'm intentinally returning Observable to show a demo if this was a real application consuming rest api.
-  getBulbsStatus(): Bulb[] {
-    let bulbs = Bulb[100] = [];
-    for (let index = 1; index <= 100; index++) {
+  getBulbsStatus(bulbscount = 100): Bulb[] {
+    let bulbs = Bulb[bulbscount] = [];
+    for (let index = 1; index <= bulbscount; index++) {
       let bulb = new Bulb();
       bulb.Id = index;
       bulb.IsOn = false;
@@ -27,10 +28,10 @@ export class PersonBulbService extends BaseService {
     return bulbs;
   }
 
-  enterRoom(person: Person): Bulbs {
-    let bulbs = this.getBulbsStatus();
+  enterRoom(room : Room): Bulbs {
+    let bulbs = this.getBulbsStatus(room.BulbsCount);
     bulbs.forEach(b => {
-      b.IsOn = ((b.Id % person.Id) == 0);
+      b.IsOn = ((b.Id % room.Person.Id) == 0);
     });
     let onLightsCount = bulbs.filter(b => b.IsOn == true).length;
     return new Bulbs(of(bulbs), onLightsCount);

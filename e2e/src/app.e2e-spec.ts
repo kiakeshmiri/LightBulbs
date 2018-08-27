@@ -25,11 +25,11 @@ describe('workspace-project App', () => {
   it('should show lights Grid', () => {
     browser.get('http://localhost:4200/room');
 
-    var mannualTab = element(by.className('mat-ink-bar'));
+    var personNumber = element(by.name('personNumber'));
+    var bulbCount = element(by.name('bulbCount'));
 
-    mannualTab.click().then(function () {
-      //Write Tests
-    });
-
+    personNumber.sendKeys(2);
+    personNumber.sendKeys(100);
+    //Yay
   });
 });
