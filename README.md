@@ -8,6 +8,8 @@ I wanted to simulate 2 modes mannaul and automatic so I created a tab for a vari
 
 The web page is very simple. I did not add any style or custom theme.
 
+Since this is a very small project, I have not enabled modules lazy loading meaning no there's additional modules beyond Material Module. However I created nested folders (i.e. home/room) and placed UI components in there. in future we can add their own module to folder if needed.
+
 # LightBulbs
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
