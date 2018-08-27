@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +26,8 @@ import { MatAppModule } from './mat-module/mat-app.module';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatAppModule
+    MatAppModule,
+    FlexLayoutModule
   ],
   providers: [PersonBulbService],
   bootstrap: [AppComponent]
