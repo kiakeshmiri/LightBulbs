@@ -1,14 +1,14 @@
 # Intro
 
-This project intentially desgned to show briefly Animation in Tabs and a simple theme.
+This project intentially designed to show briefly Animation in Tabs and a simple theme.
 
-I wrote a simple e2e test scenario which test cases can be added to it later. it needs karma and protractor server to be installed on local machine.
+I wrote a simple e2e test scenario which test cases can be added to it later. It needs karma and protractor server to be installed on local machine.
 
-I wanted to simulate 2 modes mannaul and automatic so I created a tab for a variable room with variable light bulbs and a room with 100 light bulbs which 100 people enter than room later. I know this was necessary based on description but I added to show how BehaviorSubject works. in addition to that it will display smooth materla animation.
+I wanted to simulate 2 modes, manual and automatic. I created a tab for a variable room with variable light bulbs as well as a room with  100 fixed light bulbs. 100 people will enter that room later. I know this was not necessary based on description, but I added it to show how BehaviorSubject works. Additionaly, it will display a smooth material animation.
 
 The web page is very simple. I did not add any style or custom theme.
 
-Since this is a very small project, I have not enabled modules lazy loading meaning no there's additional modules beyond Material Module. However I created nested folders (i.e. home/room) and placed UI components in there. in future we can add their own module to folder if needed.
+Since this is a very small project, I have not enabled lazy loading, meaning there's no additional modules beyond Material Module. However, I created nested folders (i.e. home/room) and placed UI components in there. In future, we can add their own modules to the folder if needed.
 
 # LightBulbs
 
