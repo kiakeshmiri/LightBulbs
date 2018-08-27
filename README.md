@@ -6,6 +6,8 @@ I wrote a simple e2e test scenario which test cases can be added to it later. it
 
 I wanted to simulate 2 modes mannaul and automatic so I created a tab for a variable room with variable light bulbs and a room with 100 light bulbs which 100 people enter than room later. I know this was necessary based on description but I added to show how BehaviorSubject Works. in addition to that it will display smooth materla animation.
 
+The web page is very simple. I did not add any style or custom theme.
+
 # LightBulbs
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
