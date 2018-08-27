@@ -11,7 +11,7 @@
         </mat-form-field>
         <mat-form-field style="margin-left: 20px; margin-top: 10px;">
           <input name="bulbCount" matInput appNoZero="bulbCount" #bulbCount='ngModel' [(ngModel)]="room.BulbsCount" placeholder="How many bulbs?"
-            type="number"  required (keyup)="enterRoom(room)">
+            type="number" min="1" max="100"  required (keyup)="enterRoom(room)">
         </mat-form-field>
 
         <mat-chip color="primary" selected style="margin-left: 10px;">{{onLightsCount}} light(s) are ON</mat-chip>
