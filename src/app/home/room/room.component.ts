@@ -14,7 +14,7 @@ import { Room } from '../../model/Room';
 export class RoomComponent implements OnInit {
 
   person: Person = {
-    Id: NaN,
+    Id: null,
     Name: ""
   };
 
