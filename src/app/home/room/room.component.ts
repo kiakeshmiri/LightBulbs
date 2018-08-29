@@ -15,7 +15,7 @@ export class RoomComponent implements OnInit {
 
   person: Person = {
     Id: null,
-    Name: ""
+    Name: ''
   };
 
   room: Room = {
@@ -29,10 +29,9 @@ export class RoomComponent implements OnInit {
   onMagicLightsCount: Number = 0;
   displayedColumns: string[] = ['Id', 'OnOff'];
   isLoadingResults = false;
-  
-  //used BehaviorSubject to be able to render room lights initially by passing inital person to the Observer. otherwise I have to initial 100 light bulbs first and then handle person enter event. 
+  // used BehaviorSubject to be able to render room lights initially by passing inital person to the Observer.
+  // otherwise I have to initial 100 light bulbs first and then handle person enter event.
   private lightBulbSubjects = new BehaviorSubject<Room>(this.room);
-  
   constructor(private peronBulbService: PersonBulbService) { }
 
 
@@ -40,19 +39,18 @@ export class RoomComponent implements OnInit {
   enterRoom(room: Room): void {
     this.isLoadingResults = true;
     this.lightBulbSubjects.next(room);
-  
     this.bulbs$.subscribe(bulbs => {
-      this.onLightsCount = bulbs.filter(b => b.IsOn == true).length;
+      this.onLightsCount = bulbs.filter(b => b.IsOn === true).length;
     });
   }
 
-  //all 100 people enters to room
+  // all 100 people enters to room
   bulkEnterRoom(): void {
     this.peronBulbService.getPersonList()
       .subscribe(personlist => {
-        let magicPersonList = personlist;
+        const magicPersonList = personlist;
         magicPersonList.forEach(magicPerson => {
-          let bulbs = this.peronBulbService.enterRoom(new Room(magicPerson, 100));
+          const bulbs = this.peronBulbService.enterRoom(new Room(magicPerson, 100));
           this.magicBulbs$ = bulbs.BulbList;
           this.onMagicLightsCount = bulbs.Count;
         });
@@ -64,8 +62,8 @@ export class RoomComponent implements OnInit {
       // wait 500ms
       debounceTime(500),
 
-      switchMap((room: Room) => { 
-        let result = this.peronBulbService.enterRoom(room).BulbList;
+      switchMap((room: Room) => {
+        const result = this.peronBulbService.enterRoom(room).BulbList;
         this.isLoadingResults = false;
         return result;
       }),
@@ -73,6 +71,6 @@ export class RoomComponent implements OnInit {
   }
 
   getOnOffIcons(status): string {
-    return (status) ? "" : "_outline_blank";
+    return (status) ? '' : '_outline_blank';
   }
 }

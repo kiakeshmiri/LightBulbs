@@ -12,8 +12,8 @@ import { NozeroDirective } from './directives/nozero.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAppModule } from './mat-module/mat-app.module';
 
-//I have not created sub modules to enable lazy loading since this is a very smaill application demo 
-//but in larger projects creating sub modules are desireable to enable lazy loading (based on application nature).
+// I have not created sub modules to enable lazy loading since this is a very smaill application demo
+// but in larger projects creating sub modules are desireable to enable lazy loading (based on application nature).
 @NgModule({
   declarations: [
     AppComponent,

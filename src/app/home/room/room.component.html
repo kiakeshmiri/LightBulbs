@@ -16,12 +16,6 @@
 
         <mat-chip color="primary" selected style="margin-left: 10px;">{{onLightsCount}} light(s) are ON</mat-chip>
       </mat-chip-list>
-      <div *ngIf="!personNumber.valid">
-        <mat-error>Please enter a valid number</mat-error>
-      </div>
-      <div *ngIf="!bulbCount.valid">
-        <mat-error>Please enter a valid Bulb Count</mat-error>
-      </div>
       <mat-divider></mat-divider>
       <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
       <table mat-table [dataSource]="bulbs$" class="mat-elevation-z8">
