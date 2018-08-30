@@ -14,7 +14,8 @@
             type="number" min="1" max="100"  required (keyup)="enterRoom(room)">
         </mat-form-field>
 
-        <mat-chip color="primary" selected style="margin-left: 10px;">{{onLightsCount}} light(s) are ON</mat-chip>
+        <mat-chip color="primary" selected style="margin-left: 10px;"><p class="status">{{onLightsCount}} light(s) are ON</p></mat-chip>
+        <p class="status">{{onLightsCount}} light(s) are ON</p>
       </mat-chip-list>
       <mat-divider></mat-divider>
       <mat-spinner *ngIf="isLoadingResults"></mat-spinner>

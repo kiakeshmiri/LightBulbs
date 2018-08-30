@@ -15,21 +15,23 @@ describe('workspace-project App', () => {
 
 
   it('should navigate to room', () => {
-    var roomlink = element(by.linkText('Enter room (that has 100 magical lights)'));
+    const roomlink = element(by.linkText('Enter light room'));
 
     roomlink.click().then(function () {
       expect(browser.getCurrentUrl()).toEqual('http://localhost:4200/room');
     });
   });
 
-  it('should show lights Grid', () => {
+  it('should turn on lights', () => {
     browser.get('http://localhost:4200/room');
 
-    var personNumber = element(by.name('personNumber'));
-    var bulbCount = element(by.name('bulbCount'));
+    const personNumber = element(by.name('personNumber'));
+    const bulbCount = element.all(by.css('mat-chip p'));
 
     personNumber.sendKeys(2);
-    personNumber.sendKeys(100);
-    //Yay
+    browser.sleep(2500);
+    bulbCount.getText().then(function (text) {
+        expect(text.toString()).toBe('10 light(s) are ON');
+    });
   });
 });
